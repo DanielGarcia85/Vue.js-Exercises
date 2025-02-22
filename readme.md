@@ -3,7 +3,7 @@
 ## danielgarcia2_1_85@hotmail.com
 ## daniel.dga.garcia@etu.hesge.ch
 
-School: HEG - ig@hesge.ch
+School: HEG (ig@hesge.ch)
 
 ## Skill Levels
 - HTML/CSS: some info/level
