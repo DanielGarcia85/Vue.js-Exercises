@@ -13,12 +13,19 @@
   </head>
   <body>
     <!-- Your HTML -->
-    <h1>My Site</h1>
+    <div id="app">
+
+    </div>
     <script type="module">
-import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
-
-
-       /* Your code */
+        import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+        createApp({
+            data() {
+                return {
+                    name: "John Doe",
+                    email: ""
+                };
+            }
+        }).mount("#app");
     </script>
   </body>
 </html>
