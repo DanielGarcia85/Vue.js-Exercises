@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Vue App</title>
+      <!-- Lien vers le fichier CSS "style.css" situé dans le même dossier -->
+      <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>{{ message }}</h1>
+
+      <p>Count is: {{ counter.count }}</p>
+
+      <h1 :class="titleClass">Make me red</h1> <!-- Applique la classe CSS "title" -->
+
+      <!-- Deux boutons pour incrémenter le compteur -->
+      <button v-on:click="increment">Count is: {{ counter.count }}</button>
+      <button @click="increment">Count is: {{ counter.count }}</button>
+
+      <input v-model="text" placeholder="Type here"> <!-- v-model est un raccourci pour v-bind:value et v-on:input -->
+      <p>{{ text }}</p> <!-- Affiche le texte saisi -->
+
+      <button @click="toggle">Toggle</button> <!-- Bascule l'affichage -->
+      <h1 v-if="awesome">Vue is awesome!</h1> <!-- S'affiche si awesome est vrai -->
+      <h1 v-else>Oh no 😢</h1> <!-- S'affiche si awesome est faux -->
+
+      <!-- Formulaire pour ajouter un nouveau "todo" -->
+      <form @submit.prevent="addTodo">
+        <input v-model="newTodo" required placeholder="new todo">
+        <button>Add Todo</button>
+      </form>
+
+      <!-- Liste des todos avec un bouton pour supprimer chaque élément -->
+      <ul>
+        <li v-for="todo in filteredTodos" :key="todo.id">
+          <input type="checkbox" v-model="todo.done">
+          <span :class="{ done: todo.done }">{{ todo.text }}</span>
+          <button @click="removeTodo(todo)">X</button>
+        </li>
+      </ul>
+
+      <button @click="hideCompleted = !hideCompleted">
+        {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+      </button>
+      
+      <p ref="pElementRef">Hello</p>
+
+      <p>Todo id: {{ todoId }}</p>
+      <button @click="todoId++" :disabled="!todoData">Fetch next todo</button>
+      <p v-if="!todoData">Loading...</p>
+      <pre v-else>{{ todoData }}</pre>
+
+      <child-comp></child-comp>
+
+      <child-comp :msg="greeting"></child-comp>
+
+      <child-comp @response="(msg) => childMsg = msg"></child-comp>
+      <p>{{ childMsg }}</p>
+
+      <child-comp>Message: {{ msg }}</child-comp>
+
+    </div>
+
+    <!-- Utilisation de Vue depuis un CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script type="module">
+
+      //L'import de ChildComp ne fonctionne pas alors je l'ai déclaré en tant que composant global
+      //import ChildComp from './childComp/ChildComp.js';
+
+      // Définition du composant enfant
+      const ChildComp = {
+        props: {
+          msg: String
+        },
+        //template: `<h2>{{ msg || 'props message' }}</h2>`,
+        template: `<slot>Fallback content</slot>`,
+        emits: ['response'],
+        created() {
+          this.$emit('response', 'hello from child')
+        },
+      };
+
+      const { createApp} = Vue;
+
+      // Définition correcte de `id`
+      let id = 0;
+
+      createApp({
+        
+        components: {
+          ChildComp
+        },
+        
+        mounted() {
+          this.$refs.pElementRef.textContent = 'mounted!'
+          this.fetchData()
+        },
+        
+        created(){
+          console.log('created !')
+        },
+        
+        updated(){
+          console.log('updated !')
+        },
+        
+        watch: {
+          todoId() {
+            this.fetchData()
+          }
+        },
+        
+        data() {
+          return {
+            message: 'Hello World!',
+            counter: {
+              count: 0
+            },
+            titleClass: 'title', // (il y a en plus du CSS => .title {color: red;})
+            text: '',
+            awesome: true,
+            newTodo: '',
+            todos: [
+              { id: id++, text: 'Learn HTML', done: true },
+              { id: id++, text: 'Learn JavaScript', done: true },
+              { id: id++, text: 'Learn Vue', done: true }
+            ],
+            hideCompleted: false,
+            todoId: 1,
+            todoData: null,
+            greeting: 'Hello from parent',
+            childMsg: 'No child msg yet',
+            msg: 'from parent'
+          };
+        },
+        
+        computed: {
+          filteredTodos() {
+            return this.hideCompleted ? this.todos.filter((t) => !t.done) : this.todos
+          }
+        },
+        
+        methods: {
+          
+          increment() {
+            this.counter.count++; // Incrémente la valeur de count dans counter
+          },
+          
+          toggle() {
+            this.awesome = !this.awesome; // Inverse la valeur de awesome
+          },
+          
+          addTodo() {
+            this.todos.push({ id: id++, text: this.newTodo, done: false }); // Ajoute le todo
+            this.newTodo = ''; // Réinitialise l'entrée
+          },
+          
+          removeTodo(todo) {
+            this.todos = this.todos.filter((t) => t !== todo); // Supprime le todo correspondant
+          },
+          
+          async fetchData() {
+            this.todoData = null
+            const res = await fetch(
+              `https://jsonplaceholder.typicode.com/todos/${this.todoId}`
+            )
+            this.todoData = await res.json()
+          }
+        }
+      }).mount('#app');
+
+    </script>
+
+  </body>
+
+</html>
