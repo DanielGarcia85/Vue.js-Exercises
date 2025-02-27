@@ -37,4 +37,4 @@ Before starting, make sure you have:
 
 ## Author
 
-Project created by **Daniel Garcia** as part of the course *65-41 Interschool Software Development* taught at **HEG** during the *Spring semester of 2025*.
+Project created by **Daniel Garcia** as part of the course *65-41 Interschool Software Development* taught at **HEG - Geneva** during the *Spring semester of 2025*.
