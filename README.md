@@ -1,4 +1,4 @@
-# Vue.js Exercises - Beginner Level
+# Vue.js Exercises
 
 This repository contains a series of exercises and tutorials aimed at learning the basics of the **Vue.js** framework using **HTML**, **JavaScript**, and **CSS**.
 
