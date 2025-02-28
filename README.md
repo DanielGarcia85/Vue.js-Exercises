@@ -1,6 +1,6 @@
 # Vue.js Exercises
 
-This repository contains a series of exercises and tutorials aimed at learning the basics of the **Vue.js** framework using **HTML**, **JavaScript**, and **CSS**.
+This repository contains a series of exercises and tutorials aimed at learning the basics of the **Vue.js** framework using **HTML**, **JavaScript**, and **CSS**, developed as part of the ***65-41 Interschool Software Development*** course at **Haute École de Gestion (HEG)**.
 
 ## Structure of the Project
 
@@ -35,6 +35,10 @@ Before starting, make sure you have:
 - **Level 0** : [https://learn.fritscher.ch/codelabs/vuejs-level-0/](https://learn.fritscher.ch/codelabs/vuejs-level-0/)
 - **Level 1** : [https://learn.fritscher.ch/codelabs/vuejs-level-1/](https://learn.fritscher.ch/codelabs/vuejs-level-1/)
 
+## License
+
+This project is licensed under the *Creative Commons Attribution-ShareAlike (CC BY-SA)* license.
+
 ## Author
 
-Project created by **Daniel Garcia** as part of the course *65-41 Interschool Software Development* taught at **HEG - Geneva** during the *Spring semester of 2025*.
+Project created by **Daniel Garcia** as part of the course ***65-41 Interschool Software Development*** at **Haute École de Gestion (HEG)** during the Spring semester of 2025.
