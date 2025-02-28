@@ -1,4 +1,4 @@
-# Vue.js Exercises
+# Vue.js Exercisess
 
 This repository contains a series of exercises and tutorials aimed at learning the basics of the **Vue.js** framework using **HTML**, **JavaScript**, and **CSS**, developed as part of the ***65-41 Interschool Software Development*** course at **Haute École de Gestion (HEG)**.
 
