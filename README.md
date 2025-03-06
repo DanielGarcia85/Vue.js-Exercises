@@ -44,14 +44,25 @@ The Level2 folder contains an advanced Vue.js project focused on order managemen
 - src/views/OrdersView.vue : Displays a list of orders.
 - src/views/OrderAdd.vue : Provides a form for adding new orders.
 
-###🚀 Installation and Running the Project
+### 🚀 Installation and Running the Project
 
 1. Install dependencies:
+```shell
 npm install
-2. Start the development server:
+````
+2. Run the following command to auto fix formatting and see errors:
+```shell
+npm run lint
+npm run format
+```
+3. Start the development server:
+```shell
 npm run dev
-3. Access the application at:
+````
+4. Access the application at:
+```shell
 http://localhost:5173
+```
 
 ### ⚙️ Technologies Used
 - Vue 3
