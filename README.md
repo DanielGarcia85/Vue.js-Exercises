@@ -34,6 +34,7 @@ Before starting, make sure you have:
 - **Tutorial** : [https://vuejs.org/tutorial/](https://vuejs.org/tutorial/)
 - **Level 0** : [https://learn.fritscher.ch/codelabs/vuejs-level-0/](https://learn.fritscher.ch/codelabs/vuejs-level-0/)
 - **Level 1** : [https://learn.fritscher.ch/codelabs/vuejs-level-1/](https://learn.fritscher.ch/codelabs/vuejs-level-1/)
+- **Level 2** : [https://learn.fritscher.ch/codelabs/vuejs-level-2/](https://learn.fritscher.ch/codelabs/vuejs-level-2/)
 
 ## License
 
