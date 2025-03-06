@@ -40,7 +40,7 @@ The Level 2 folder contains an advanced Vue.js project focused on order manageme
 
 ## Usage
 
-### For Level 0 % Level 1
+### For Level 0 & Level 1
 
 1. Clone this repository.
 2. Open the `.html` files in a browser or serve them via a local server.
